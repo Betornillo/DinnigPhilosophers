@@ -4,37 +4,26 @@ import javax.swing.JOptionPane;
 
 public class App {
 
-    public static void main(String[] a) throws InterruptedException {
-        JOptionPane.showMessageDialog(null,"Jodeeerr","Mensaje de advertencia",
-				      JOptionPane.WARNING_MESSAGE);
-	System.out.println("Veo que NO nada más corro aquí");
-	String op = JOptionPane.showInputDialog(null,"Bienvenido, cómo te llamas?");
-	JOptionPane.showMessageDialog(null,"Mucho gusto el conocerte " + op);
-	final Filosofo joder = new Filosofo()
-	    {
-		
-		void hasMagia()
-		{
-		    System.out.println("has magia");
-		}
-	     
-		@Override
-		void otro()
-		{
-		    //	    joder.super();
-		    super.otro();
-		    System.out.println("estoysobreescribiendo");
-		    hasMagia();
-		    
-		}
-	    };
-	joder.otro();
-	joder.run();
-	int i = 1;
-	System.out.println(joder.contador(i));
-	//	joder.hasMagia();
-	//	joder.hasMagia();
-
-
+    public static void main(String[] args) throws Exception {
+ 
+        Philosopher[] philosophers = new Philosopher[5];
+        Object[] forks = new Object[philosophers.length];
+ 
+        for (int i = 0; i < forks.length; i++) {
+            forks[i] = new Object();
+        }
+ 
+        for (int i = 0; i < philosophers.length; i++) {
+            Object leftFork = forks[i];
+            Object rightFork = forks[(i + 1) % forks.length];
+ 
+            philosophers[i] = new Philosopher(leftFork, rightFork);
+             
+            Thread t 
+              = new Thread(philosophers[i], "Philosopher " + (i + 1));
+            t.start();
+        }
     }
+
+    
 }
