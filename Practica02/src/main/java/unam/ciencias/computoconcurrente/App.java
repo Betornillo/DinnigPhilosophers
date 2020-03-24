@@ -12,13 +12,26 @@ public class App {
 	JOptionPane.showMessageDialog(null,"Mucho gusto el conocerte " + op);
 	final Filosofo joder = new Filosofo()
 	    {
+		
 		void hasMagia()
 		{
 		    System.out.println("has magia");
 		}
+	     
+		@Override
+		void otro()
+		{
+		    //	    joder.super();
+		    super.otro();
+		    System.out.println("estoysobreescribiendo");
+		    hasMagia();
+		    
+		}
 	    };
 	joder.otro();
 	joder.run();
+	//	joder.hasMagia();
+	//	joder.hasMagia();
 
 
     }
