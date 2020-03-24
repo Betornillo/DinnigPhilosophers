@@ -17,6 +17,8 @@ public class App {
 		    System.out.println("has magia");
 		}
 	    };
+	joder.otro();
+	joder.run();
 
 
     }
