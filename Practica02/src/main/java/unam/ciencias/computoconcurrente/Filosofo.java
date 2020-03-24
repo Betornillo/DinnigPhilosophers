@@ -14,6 +14,12 @@ public abstract class Filosofo implements Runnable {
 	System.out.println("Estoy corriendo dentro del run del filosofo");
 	
     }
+		public int contador(int cuenta)
+		{
+		    cuenta = cuenta + 6;
+		    return cuenta;
+		}
+    
     void otro()
     {
 	System.out.println("Este es un metodo ajeno que se agregó a la clase filosofo");	

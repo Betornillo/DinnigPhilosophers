@@ -30,6 +30,8 @@ public class App {
 	    };
 	joder.otro();
 	joder.run();
+	int i = 1;
+	System.out.println(joder.contador(i));
 	//	joder.hasMagia();
 	//	joder.hasMagia();
 
