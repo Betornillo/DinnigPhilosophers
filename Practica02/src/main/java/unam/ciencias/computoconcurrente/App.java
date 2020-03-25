@@ -6,21 +6,21 @@ public class App {
 
     public static void main(String[] args) throws Exception {
  
-        Philosopher[] philosophers = new Philosopher[5];
-        Object[] forks = new Object[philosophers.length];
+        Filosofo[] filosofos = new Filosofo[5];
+        Object[] palillos = new Object[filosofos.length];
  
-        for (int i = 0; i < forks.length; i++) {
-            forks[i] = new Object();
+        for (int i = 0; i < palillos.length; i++) {
+            palillos[i] = new Object();
         }
  
-        for (int i = 0; i < philosophers.length; i++) {
-            Object leftFork = forks[i];
-            Object rightFork = forks[(i + 1) % forks.length];
+        for (int i = 0; i < filosofos.length; i++) {
+            Object izq = palillos[i];
+            Object der = palillos[(i + 1) % palillos.length];
  
-            philosophers[i] = new Philosopher(leftFork, rightFork);
+            filosofos[i] = new Filosofo(izq, der);
              
             Thread t 
-              = new Thread(philosophers[i], "Philosopher " + (i + 1));
+		= new Thread(filosofos[i], "Filosofo " + (i + 1));
             t.start();
         }
     }
